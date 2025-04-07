@@ -21,7 +21,9 @@ const traitData = {
             { name: "Information Processing Speed", rating: "2.5/10", score: 25 },
             { name: "Logical Reasoning", rating: "6.5/10", score: 65 },
             { name: "Reflectiveness", rating: "9/10", score: 90 },
-            { name: "Self-awareness", rating: "8/10", score: 80 }
+            { name: "Self-awareness", rating: "8/10", score: 80 },
+            { name: "Strategic Thinking", rating: "8/10", score: 90, note: "Great at planning steps ahead, big picture ONLY with available information." }
+
         ]
     },
     emotionalTraits: {
@@ -50,7 +52,9 @@ const traitData = {
             { name: "Active Listening", rating: "3/10", score: 30, note: "Dropoff in listening quality when disinterested, doesn't respect the person speaking or after 3 minutes." },
             { name: "Teamwork", rating: "5/10", score: 50 },
             { name: "Persuasiveness", rating: "8/10", score: 80 },
-            { name: "Mentoring", rating: "4/10", score: 40 }
+            { name: "Mentoring", rating: "4/10", score: 40 },
+            { name: "Boundary Setting", rating: "5/10", score: 50, note: "Greatly improved since 2024" },
+            { name: "Vulnerability", rating: "6/10", score: 60, note: "Only shows deep vulnerability when it's safe to do so, open to others in general" }
         ]
     },
     selfRegulationTraits: {
@@ -100,7 +104,9 @@ const traitData = {
             { name: "When in \"locked-in\" zone, extremely high output", rating: "", score: null },
             { name: "Hard time saying No to social events, drinking", rating: "", score: null },
             { name: "Self-sabotage", rating: "", score: null, note: "Very high" },
-            { name: "Inconsistently dependable", rating: "", score: null }
+            { name: "Inconsistently dependable", rating: "", score: null },
+            { name: "Poor at multi-tasking", rating: "", score: null },
+            { name: "Poor at context-switching", rating: "", score: null }
         ]
     }
 };

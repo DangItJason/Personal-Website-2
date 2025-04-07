@@ -1,0 +1,43 @@
+/* Blog Page Styles */
+
+.page-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.blog-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.blog-post {
+    border-bottom: 1px solid var(--color-light-gray);
+    padding-bottom: 3rem;
+}
+
+.blog-post:last-child {
+    border-bottom: none;
+}
+
+.blog-post-header {
+    margin-bottom: 1rem;
+}
+
+.blog-post-header h2 {
+    margin-bottom: 0.5rem;
+}
+
+.blog-post-header time {
+    color: var(--color-dark-gray);
+    font-size: 0.875rem;
+}
+
+.blog-post-excerpt {
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    display: inline-block;
+    font-weight: 500;
+} 

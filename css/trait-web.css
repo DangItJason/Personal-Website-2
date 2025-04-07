@@ -1,0 +1,222 @@
+/* Trait Web Page Styles */
+
+.page-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--color-dark-gray);
+    margin-top: -0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Tab Navigation */
+.tabs-container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 3rem;
+}
+
+.tabs-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px solid var(--color-light-gray);
+    margin-bottom: 2rem;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    margin-right: 1rem;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-dark-gray);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.tab-button:hover {
+    color: var(--color-black);
+}
+
+.tab-button.active {
+    color: var(--color-black);
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-black);
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Trait Category */
+.trait-category {
+    margin-bottom: 3rem;
+}
+
+.trait-category h2 {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Trait List */
+.trait-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.trait-item {
+    display: flex;
+    flex-direction: column;
+    min-height: 80px;
+    background-color: #fafafa;
+    border-radius: 6px;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.trait-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.trait-name {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.trait-rating {
+    font-size: 0.875rem;
+    color: var(--color-dark-gray);
+}
+
+.trait-bar-container {
+    height: 8px;
+    background-color: var(--color-light-gray);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: auto;
+}
+
+.trait-bar {
+    height: 100%;
+    background-color: var(--color-black);
+    border-radius: 4px;
+}
+
+.trait-note {
+    font-size: 0.875rem;
+    color: var(--color-dark-gray);
+    font-style: italic;
+    margin-top: 0.75rem;
+    align-self: flex-start;
+}
+
+/* Radar Chart */
+.radar-chart-section {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.radar-chart-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.radar-chart-container {
+    max-width: 600px;
+    margin: 0 auto;
+    height: 400px;
+}
+
+/* Add styles for the sort controls */
+.sort-controls {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.sort-controls label {
+    margin-right: 0.5rem;
+    font-weight: 500;
+}
+
+.sort-controls select {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.sort-controls select:hover {
+    border-color: #ccc;
+}
+
+.sort-controls select:focus {
+    outline: none;
+    border-color: #000;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 767px) {
+    .tabs-navigation {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 0.5rem;
+    }
+    
+    .tab-button {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+        width: 100%;
+        text-align: left;
+    }
+    
+    .tab-button.active::after {
+        width: 100%;
+        left: 0;
+    }
+    
+    .trait-list {
+        grid-template-columns: 1fr;
+    }
+} 

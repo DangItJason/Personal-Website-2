@@ -1,0 +1,144 @@
+/* Global Variables */
+:root {
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-light-gray: #EEEEEE;
+    --color-dark-gray: #333333;
+    --font-primary: 'Inter', sans-serif;
+    --max-width: 800px;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--color-black);
+    background-color: var(--color-white);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2rem; /* 32px */
+}
+
+h2 {
+    font-size: 1.5rem; /* 24px */
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--color-black);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-black);
+    transition: border-color 0.3s ease;
+}
+
+a:hover {
+    border-color: transparent;
+}
+
+/* Layout */
+header, main, footer {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    margin-bottom: 1.5rem;
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    border-bottom: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    border-bottom: 1px solid var(--color-black);
+}
+
+/* Welcome Section */
+.welcome {
+    margin-bottom: 3rem;
+    text-align: center;
+    font-size: 1.125rem; /* 18px */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Directory */
+.directory {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.directory-item {
+    padding: 2rem;
+    background-color: var(--color-light-gray);
+    border-radius: 4px;
+}
+
+.directory-item p {
+    margin-bottom: 1rem;
+}
+
+.directory-item a {
+    display: inline-block;
+    font-weight: 500;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    font-size: 0.875rem; /* 14px */
+    color: var(--color-dark-gray);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .directory {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+} 

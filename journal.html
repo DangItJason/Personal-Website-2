@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal | Jason Nguyen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/journal.css">
+</head>
+<body>
+    <header>
+        <h1>Jason Nguyen</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="journal.html">Journal</a></li>
+                <li><a href="trait-web.html">Trait Web</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="page-title">
+            <h1>Journal</h1>
+        </section>
+        
+        <section class="journal-entries">
+            <!-- Sample journal entries for demonstration -->
+            <article class="journal-entry">
+                <header class="journal-entry-header">
+                    <time datetime="2023-06-20">June 20, 2023</time>
+                    <h2>A Day of Reflection</h2>
+                </header>
+                <div class="journal-entry-content">
+                    <p>Today was a day of deep reflection. I found myself contemplating the path I've chosen and the decisions that have led me here. There's something powerful about taking the time to sit with your thoughts, to really examine the patterns and choices that shape your life.</p>
+                    <p>I've been thinking about the concept of intention versus impact. How often do we set out with the best intentions, only to create unintended consequences? It's a humbling realization that our actions can ripple outward in ways we never anticipated.</p>
+                </div>
+            </article>
+            
+            <article class="journal-entry">
+                <header class="journal-entry-header">
+                    <time datetime="2023-06-15">June 15, 2023</time>
+                    <h2>Creative Blocks</h2>
+                </header>
+                <div class="journal-entry-content">
+                    <p>I've been struggling with a creative block these past few days. Every time I sit down to work, my mind feels clouded, my thoughts disorganized. It's as if there's a wall between me and my creativity, and I can't seem to find a way around it.</p>
+                    <p>What I've found helpful is stepping away from the task completely. A walk in nature, a conversation with a friend, or simply sitting in silence can sometimes be the key to unlocking those stuck ideas.</p>
+                </div>
+            </article>
+            
+            <article class="journal-entry">
+                <header class="journal-entry-header">
+                    <time datetime="2023-06-08">June 8, 2023</time>
+                </header>
+                <div class="journal-entry-content">
+                    <p>Brief thoughts: The quality of our questions determines the quality of our answers. Today I'm trying to ask better questions.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; <span id="current-year"></span> Jason Nguyen</p>
+    </footer>
+    
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html> 

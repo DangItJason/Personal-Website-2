@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Jason Nguyen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+    <header>
+        <h1>Jason Nguyen</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="journal.html">Journal</a></li>
+                <li><a href="trait-web.html">Trait Web</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="page-title">
+            <h1>Blog</h1>
+        </section>
+        
+        <section class="blog-posts">
+            <!-- Sample blog posts for demonstration -->
+            <article class="blog-post">
+                <header class="blog-post-header">
+                    <h2>Sample Blog Post Title</h2>
+                    <time datetime="2023-06-15">June 15, 2023</time>
+                </header>
+                <div class="blog-post-excerpt">
+                    <p>This is a sample excerpt from a blog post. It provides a brief overview of what the full post contains, enticing readers to click and read more.</p>
+                </div>
+                <a href="#" class="read-more">Read more →</a>
+            </article>
+            
+            <article class="blog-post">
+                <header class="blog-post-header">
+                    <h2>Another Interesting Topic</h2>
+                    <time datetime="2023-05-22">May 22, 2023</time>
+                </header>
+                <div class="blog-post-excerpt">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at risus ac quam vulputate viverra eget et neque. Morbi a enim sit amet urna mollis malesuada.</p>
+                </div>
+                <a href="#" class="read-more">Read more →</a>
+            </article>
+            
+            <article class="blog-post">
+                <header class="blog-post-header">
+                    <h2>Thoughts on Technology</h2>
+                    <time datetime="2023-04-10">April 10, 2023</time>
+                </header>
+                <div class="blog-post-excerpt">
+                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse quis velit ac magna aliquam facilisis.</p>
+                </div>
+                <a href="#" class="read-more">Read more →</a>
+            </article>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; <span id="current-year"></span> Jason Nguyen</p>
+    </footer>
+    
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html> 

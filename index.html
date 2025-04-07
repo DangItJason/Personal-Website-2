@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jason Nguyen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+        <h1>Jason Nguyen</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="journal.html">Journal</a></li>
+                <li><a href="trait-web.html">Trait Web</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="welcome">
+            <p>Welcome to my personal space. Here you'll find my thoughts, reflections, and a glimpse into who I am.</p>
+        </section>
+        
+        <section class="directory">
+            <div class="directory-item">
+                <h2>Blog</h2>
+                <p>Thoughts and ideas on various topics.</p>
+                <a href="blog.html">View Blog →</a>
+            </div>
+            
+            <div class="directory-item">
+                <h2>Journal</h2>
+                <p>Personal reflections and daily musings.</p>
+                <a href="journal.html">Read Journal →</a>
+            </div>
+            
+            <div class="directory-item">
+                <h2>Trait Web</h2>
+                <p>A visual representation of my self-assessment.</p>
+                <a href="trait-web.html">Explore Traits →</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; <span id="current-year"></span> Jason Nguyen</p>
+    </footer>
+    
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html> 

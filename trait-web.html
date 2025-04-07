@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trait Web | Jason Nguyen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/trait-web.css">
+</head>
+<body>
+    <header>
+        <h1>Jason Nguyen</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="journal.html">Journal</a></li>
+                <li><a href="trait-web.html">Trait Web</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="page-title">
+            <h1>Jason Trait Web</h1>
+            <p class="subtitle">A visual representation of self-assessment</p>
+        </section>
+        
+        <div class="tabs-container">
+            <div class="tabs-navigation" id="tabs-nav">
+                <!-- Tab buttons will be generated here -->
+            </div>
+            
+            <div class="sort-controls">
+                <label for="sort-select">Sort traits:</label>
+                <select id="sort-select">
+                    <option value="default">Default order</option>
+                    <option value="highest">Highest to lowest</option>
+                    <option value="lowest">Lowest to highest</option>
+                    <option value="alphabetical">Alphabetical</option>
+                </select>
+            </div>
+            
+            <div id="tab-contents">
+                <!-- Tab content will be generated here -->
+            </div>
+        </div>
+        
+        <section class="radar-chart-section">
+            <h2>Key Traits Visualization</h2>
+            <div class="radar-chart-container">
+                <canvas id="radarChart"></canvas>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; <span id="current-year"></span> Jason Nguyen</p>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/trait-data.js"></script>
+    <script src="js/trait-web.js"></script>
+    <script>
+        // Generate the tabs and content from the trait data
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabsNav = document.getElementById('tabs-nav');
+            const tabContents = document.getElementById('tab-contents');
+            const sortSelect = document.getElementById('sort-select');
+            let currentTraitData = {};
+            
+            // Clone the traitData object to keep an original copy
+            const originalTraitData = JSON.parse(JSON.stringify(traitData));
+            
+            // Generate tabs and content
+            function generateContent(traitDataToUse) {
+                // Clear existing content
+                tabsNav.innerHTML = '';
+                tabContents.innerHTML = '';
+                
+                let isFirstTab = true;
+                for (const categoryKey in traitDataToUse) {
+                    const category = traitDataToUse[categoryKey];
+                    
+                    // Create tab button
+                    const tabButton = document.createElement('button');
+                    tabButton.className = `tab-button ${isFirstTab ? 'active' : ''}`;
+                    tabButton.setAttribute('data-tab', categoryKey);
+                    tabButton.textContent = category.title;
+                    tabsNav.appendChild(tabButton);
+                    
+                    // Create tab content
+                    const tabContent = document.createElement('div');
+                    tabContent.id = categoryKey;
+                    tabContent.className = `tab-content ${isFirstTab ? 'active' : ''}`;
+                    
+                    // Create category container
+                    const categoryDiv = document.createElement('div');
+                    categoryDiv.className = 'trait-category';
+                    
+                    // Add category title
+                    const categoryTitle = document.createElement('h2');
+                    categoryTitle.textContent = category.title;
+                    categoryDiv.appendChild(categoryTitle);
+                    
+                    // Create trait list
+                    const traitList = document.createElement('div');
+                    traitList.className = 'trait-list';
+                    
+                    // Add traits
+                    category.traits.forEach(trait => {
+                        const traitItem = document.createElement('div');
+                        traitItem.className = 'trait-item';
+                        
+                        // Create trait header
+                        const traitHeader = document.createElement('div');
+                        traitHeader.className = 'trait-header';
+                        
+                        // Add trait name
+                        const traitName = document.createElement('div');
+                        traitName.className = 'trait-name';
+                        traitName.textContent = trait.name;
+                        traitHeader.appendChild(traitName);
+                        
+                        // Add trait rating
+                        const traitRating = document.createElement('div');
+                        traitRating.className = 'trait-rating';
+                        traitRating.textContent = trait.rating;
+                        traitHeader.appendChild(traitRating);
+                        
+                        traitItem.appendChild(traitHeader);
+                        
+                        // Add trait bar if score is not null
+                        if (trait.score !== null) {
+                            const traitBarContainer = document.createElement('div');
+                            traitBarContainer.className = 'trait-bar-container';
+                            
+                            const traitBar = document.createElement('div');
+                            traitBar.className = 'trait-bar';
+                            traitBar.style.width = `${trait.score}%`;
+                            
+                            traitBarContainer.appendChild(traitBar);
+                            traitItem.appendChild(traitBarContainer);
+                        }
+                        
+                        // Add trait note if available
+                        if (trait.note) {
+                            const traitNote = document.createElement('div');
+                            traitNote.className = 'trait-note';
+                            traitNote.textContent = trait.note;
+                            traitItem.appendChild(traitNote);
+                        }
+                        
+                        traitList.appendChild(traitItem);
+                    });
+                    
+                    categoryDiv.appendChild(traitList);
+                    tabContent.appendChild(categoryDiv);
+                    tabContents.appendChild(tabContent);
+                    
+                    isFirstTab = false;
+                }
+                
+                // Reattach tab functionality
+                attachTabFunctionality();
+            }
+            
+            // Function to attach tab functionality
+            function attachTabFunctionality() {
+                const tabButtons = document.querySelectorAll('.tab-button');
+                const tabContentElements = document.querySelectorAll('.tab-content');
+                
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // Remove active class from all buttons and contents
+                        tabButtons.forEach(btn => btn.classList.remove('active'));
+                        tabContentElements.forEach(content => content.classList.remove('active'));
+                        
+                        // Add active class to clicked button and corresponding content
+                        button.classList.add('active');
+                        const tabId = button.getAttribute('data-tab');
+                        document.getElementById(tabId).classList.add('active');
+                    });
+                });
+            }
+            
+            // Sort traits based on selected option
+            function sortTraits() {
+                // Create a deep copy of the original data
+                const sortedData = JSON.parse(JSON.stringify(originalTraitData));
+                
+                // Get the selected sort option
+                const sortOption = sortSelect.value;
+                
+                if (sortOption !== 'default') {
+                    // Sort each category's traits
+                    for (const categoryKey in sortedData) {
+                        const traits = sortedData[categoryKey].traits;
+                        
+                        // Filter out traits with null scores for score-based sorting
+                        const scoredTraits = traits.filter(trait => trait.score !== null);
+                        const unscorableTraits = traits.filter(trait => trait.score === null);
+                        
+                        // Sort based on the selected option
+                        if (sortOption === 'highest') {
+                            scoredTraits.sort((a, b) => b.score - a.score);
+                        } else if (sortOption === 'lowest') {
+                            scoredTraits.sort((a, b) => a.score - b.score);
+                        } else if (sortOption === 'alphabetical') {
+                            traits.sort((a, b) => a.name.localeCompare(b.name));
+                            continue; // Skip combining arrays below, as we sorted all traits
+                        }
+                        
+                        // For score-based sorting, combine scored traits with unscorable ones
+                        sortedData[categoryKey].traits = [...scoredTraits, ...unscorableTraits];
+                    }
+                }
+                
+                // Update current data and regenerate content
+                currentTraitData = sortedData;
+                generateContent(sortedData);
+            }
+            
+            // Initial content generation
+            currentTraitData = JSON.parse(JSON.stringify(originalTraitData));
+            generateContent(currentTraitData);
+            
+            // Add event listener for sort selection
+            sortSelect.addEventListener('change', sortTraits);
+            
+            // Current year for footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+        
+        // Radar chart
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the canvas element
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            
+            // Extract data from radarChartTraits
+            const labels = radarChartTraits.map(trait => trait.name);
+            const scores = radarChartTraits.map(trait => trait.score);
+            
+            // Define the key traits to display in the radar chart
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Jason\'s Traits',
+                    data: scores,
+                    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                    borderColor: '#000000',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#000000',
+                    pointBorderColor: '#ffffff',
+                    pointHoverBackgroundColor: '#ffffff',
+                    pointHoverBorderColor: '#000000',
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }]
+            };
+            
+            // Chart configuration
+            const config = {
+                type: 'radar',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            pointLabels: {
+                                color: '#000000',
+                                font: {
+                                    family: "'Inter', sans-serif",
+                                    size: 12
+                                }
+                            },
+                            ticks: {
+                                display: true,
+                                backdropColor: 'transparent',
+                                color: '#333333',
+                                stepSize: 2,
+                                font: {
+                                    family: "'Inter', sans-serif",
+                                    size: 10
+                                }
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 10
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#000000',
+                            titleFont: {
+                                family: "'Inter', sans-serif",
+                                size: 14
+                            },
+                            bodyFont: {
+                                family: "'Inter', sans-serif",
+                                size: 12
+                            },
+                            callbacks: {
+                                label: function(context) {
+                                    return `Rating: ${context.raw}/10`;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            // Create the chart
+            const radarChart = new Chart(ctx, config);
+        });
+    </script>
+</body>
+</html> 

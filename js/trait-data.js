@@ -7,89 +7,66 @@
 // Main trait data object - organized by categories
 const traitData = {
     cognitiveTraits: {
-        title: "Cognitive Traits",
+        title: "🧠 Cognitive & Psychological Traits",
         traits: [
-            { name: "Critical Thinking", rating: "7/10", score: 70 },
-            { name: "Technology Literacy", rating: "8/10", score: 80 },
-            { name: "Problem-solving", rating: "8/10", score: 80 },
-            { name: "Learning", rating: "4/10", score: 40 },
-            { name: "Memory/retention", rating: "3/10", score: 30, note: "Can only recall information that's cemented" },
-            { name: "Attention to detail", rating: "3/10", score: 30 },
-            { name: "Planning", rating: "9/10", score: 90 },
-            { name: "Creativity", rating: "8/10", score: 80 },
-            { name: "Analytical Ability", rating: "9/10", score: 90 },
-            { name: "Information Processing Speed", rating: "2.5/10", score: 25 },
-            { name: "Logical Reasoning", rating: "6.5/10", score: 65 },
-            { name: "Reflectiveness", rating: "9/10", score: 90 },
-            { name: "Self-awareness", rating: "8/10", score: 80 },
-            { name: "Strategic Thinking", rating: "8/10", score: 90, note: "Great at planning steps ahead, big picture ONLY with available information." }
-
-        ]
-    },
-    emotionalTraits: {
-        title: "Emotional Traits",
-        traits: [
-            { name: "Emotional Intelligence (Outward)", rating: "6/10", score: 60, note: "Good at understanding others, often does not act on it to make them feel better." },
-            { name: "Emotional Resilience", rating: "8/10", score: 80, note: "< 24 hours to recover from stress. Jason is able to sleep it off." },
-            { name: "Stress Tolerance", rating: "6/10", score: 60, note: "Can handle stress for an average amount of time before he reaches for vices." },
-            { name: "Emotional Regulation", rating: "7/10", score: 70 },
-            { name: "Gratitude", rating: "4/10", score: 40 }
+            { name: "Critical Thinking", rating: "8/10", score: 80, note: "Jason applies strong logic and often dissects ideas from first principles. He questions assumptions and seeks truth over popularity." },
+            { name: "Technology Literacy", rating: "8/10", score: 80, note: "Jason is confident and quick to pick up new digital tools. He intuitively connects systems and understands how tech can drive leverage." },
+            { name: "Problem-solving", rating: "8.5/10", score: 85, note: "Jason is inventive and calm in chaos. He thrives under pressure and often reframes problems in creative or contrarian ways." },
+            { name: "Learning Agility", rating: "6.5/10", score: 65, note: "Jason absorbs information best through action, conversation, and emotional resonance. Abstract or passive learning formats are less effective for him." },
+            { name: "Memory/retention", rating: "4/10", score: 40, note: "Jason has a selective memory—he retains information that is emotionally charged or purpose-driven but forgets arbitrary details easily." },
+            { name: "Attention to detail", rating: "4.5/10", score: 45, note: "Jason focuses more on frameworks and meaning than minutiae. When emotionally or situationally activated, his detail orientation improves." },
+            { name: "Planning", rating: "9/10", score: 90, note: "Jason thrives in structured thinking. He is a natural at breaking large goals into executable steps and forecasting potential outcomes." },
+            { name: "Visionary Thinking", rating: "8.5/10", score: 85, note: "Jason frequently thinks in futures. He intuitively identifies patterns and long-term possibilities, often imagining systems before they exist." },
+            { name: "Creativity", rating: "8.5/10", score: 85, note: "Jason regularly generates original ideas and reimagines the familiar. His creativity spans strategy, communication, and systems design." },
+            { name: "Reflectiveness", rating: "9/10", score: 90, note: "Jason consistently reflects on his behavior, thoughts, and patterns." },
+            { name: "Inward Reflection", rating: "9/10", score: 90, note: "Jason frequently replays past conversations or events, often analyzing his own performance or social positioning." },
+            { name: "Self-Awareness", rating: "9.5/10", score: 95, note: "Jason consistently reflects on his behavior, thoughts, and patterns." },
+            { name: "Adaptability", rating: "9/10", score: 90, note: "Jason responds quickly to change and often views disruption as an opportunity for reinvention or pivoting strategy." },
+            { name: "Emotional Intelligence", rating: "8/10", score: 80, note: "Jason reads people well, understands emotional subtext, and adapts his tone to context. He is deeply attuned, sometimes overly so." },
+            { name: "Stress Management", rating: "6/10", score: 60, note: "Jason handles stress well externally but often suppresses emotional signals until burnout or disconnection sets in." },
+            { name: "Emotional Resilience", rating: "8/10", score: 80, note: "Jason bounces back from emotional challenges and maintains equilibrium in challenging situations." },
+            { name: "Patience", rating: "4.5/10", score: 45, note: "Jason is moderately patient in low-stakes situations but becomes restless when faced with inefficiency, uncertainty, or emotional friction." },
+            { name: "Grit/Perseverance", rating: "8.5/10", score: 85, note: "Jason consistently demonstrates tenacity when emotionally locked into a goal. He is capable of pushing through extended discomfort when meaning is present." },
+            { name: "Self-Trust", rating: "5.5/10", score: 55, note: "Jason occasionally questions his instincts and choices, especially when emotionally off-center. He can loop in indecision." },
+            { name: "Meaning Orientation", rating: "9.5/10", score: 95, note: "Jason's internal compass is purpose. When disconnected from meaning, he drifts. When aligned, he thrives." }
         ]
     },
     interpersonalTraits: {
-        title: "Interpersonal Traits",
+        title: "👥 Interpersonal Traits",
         traits: [
-            { name: "Compassionate", rating: "", score: 100 },
-            { name: "Friendly", rating: "", score: 100 },
-            { name: "Likeable", rating: "", score: 100 },
-            { name: "Caring", rating: "", score: 100 },
-            { name: "Leadership", rating: "7.5/10", score: 75, note: "Can inspire others to be better in their own way" },
-            { name: "Small talk", rating: "6/10", score: 60 },
-            { name: "Verbal Communication", rating: "5/10", score: 50 },
-            { name: "Written Communication", rating: "7/10", score: 70 },
-            { name: "Conflict Resolution", rating: "8/10", score: 80 },
-            { name: "Negotiation", rating: "6.5/10", score: 65 },
-            { name: "Active Listening", rating: "3/10", score: 30, note: "Dropoff in listening quality when disinterested, doesn't respect the person speaking or after 3 minutes." },
+            { name: "Leadership", rating: "7.5/10", score: 75, note: "Jason is a strategic and thoughtful leader, though he hasn't consistently exercised this muscle recently. He leads best when a cause or purpose fuels him." },
+            { name: "Small talk", rating: "6/10", score: 60, note: "Jason can navigate light social interactions with ease, but finds them draining or purposeless unless they lead to something deeper or more meaningful." },
+            { name: "Communication Competence", rating: "", score: null, note: "Umbrella category for verbal and written communication" },
+            { name: "Verbal Communication", rating: "5.5/10", score: 55, note: "Jason communicates clearly but can second-guess his phrasing or impact. He sometimes over-corrects for how he's being perceived." },
+            { name: "Written Communication", rating: "7.5/10", score: 75, note: "Jason writes with clarity, nuance, and emotional intelligence. His written communication often reveals a thoughtful, internal world." },
+            { name: "Conflict Resolution", rating: "8/10", score: 80, note: "Jason de-escalates naturally and uses empathy plus logic. While sometimes avoidant of early tension, he resolves conflict with maturity when engaged." },
+            { name: "Negotiation", rating: "6.5/10", score: 65, note: "Jason is fair and self-aware in negotiations. While capable, he occasionally over-considers the emotional or social consequences of pressing too hard." },
+            { name: "Active Listening", rating: "3/10", score: 30 },
             { name: "Teamwork", rating: "5/10", score: 50 },
             { name: "Persuasiveness", rating: "8/10", score: 80 },
-            { name: "Mentoring", rating: "4/10", score: 40 },
-            { name: "Boundary Setting", rating: "5/10", score: 50, note: "Greatly improved since 2024" },
-            { name: "Vulnerability", rating: "6/10", score: 60, note: "Only shows deep vulnerability when it's safe to do so, open to others in general" }
+            { name: "Mentoring", rating: "4/10", score: 40 }
         ]
     },
     selfRegulationTraits: {
-        title: "Self-Regulation Traits",
+        title: "🎯 Self-Regulation Traits",
         traits: [
-            { name: "Grit/Perseverance", rating: "7.5/10", score: 75, note: "High tolerance for pain and discomfort, can work through it." },
-            { name: "Agency when locked in", rating: "10/10", score: 100 },
-            { name: "Agency when not locked in", rating: "2/10", score: 20 },
-            { name: "Patience", rating: "5/10", score: 50 },
-            { name: "Impulse Control", rating: "3/10", score: 30, note: "Significant variation in impulse control, depends on engagement + impulse types." },
-            { name: "Adaptability", rating: "9/10", score: 90 }
-        ]
-    },
-    personalityDimensions: {
-        title: "Personality Dimensions",
-        traits: [
-            { name: "Extraversion", rating: "5/10", score: 50, note: "Really it just depends on the who, when, and how" },
-            { name: "Agreeableness", rating: "4/10", score: 40, note: "Opinionated on interested topics, indifferent in general" },
-            { name: "Discipline", rating: "7/10", score: 70 },
-            { name: "Goal-setting", rating: "8/10", score: 80 },
-            { name: "Openness to Experience", rating: "", score: null, note: "Umbrella trait" },
-            { name: "Optimism", rating: "10/10", score: 100 },
+            { name: "Agency when locked in", rating: "10/10", score: 100, note: "Jason is unstoppable when focused. In this mode, he is productive, resourceful, and virtually immune to distractions." },
+            { name: "Agency when not locked in", rating: "2.5/10", score: 25, note: "Jason struggles with inertia when unclear or emotionally misaligned with a task. He becomes avoidant, distracted, or fatigued." },
+            { name: "Self-Regulation Variability", rating: "", score: null, note: "Varies based on engagement and emotional alignment." },
+            { name: "Impulse Control", rating: "5/10", score: 50, note: "Jason can be pulled toward instant gratification—particularly with social events, indulgences, or distractions." },
             { name: "Independence", rating: "10/10", score: 100 },
-            { name: "Risk Tolerance", rating: "10/10", score: 100 },
-            { name: "Assertiveness", rating: "5/10", score: 50, note: "Very conditional, depends on topic and audience" }
+            { name: "FOMO Sensitivity", rating: "Moderate", score: 60, note: "Jason is susceptible to FOMO, especially in social or experiential contexts. He seeks novelty and significance in new moments." },
+            { name: "Delayed Execution", rating: "", score: null, note: "Jason sometimes over-processes choices, leading to inaction or delayed momentum. This is often tied to uncertainty or emotional static." }
         ]
     },
     physicalAttributes: {
-        title: "Physical Attributes",
+        title: "🧍‍♂️ Physical / Lifestyle Traits",
         traits: [
-            { name: "Cardio", rating: "3/10", score: 30 },
-            { name: "Lifts", rating: "8/10", score: 80, note: "High performance in the gym per weight input" },
-            { name: "Looks", rating: "7/10", score: null },
-            { name: "Asthma", rating: "", score: null },
-            { name: "Eczema", rating: "", score: null },
+            { name: "Cardio", rating: "Below Average", score: null, note: "Jason likely deprioritizes cardio-focused workouts, though he could improve with structure and competitive framing." },
+            { name: "Lifts / Strength", rating: "Above Average", score: null, note: "Jason has good physical strength and shows discipline with resistance training." },
+            { name: "Looks / Presentation", rating: "Above Average", score: null, note: "Jason presents himself with intentionality and self-respect. He is aware of aesthetics and its effect on perception." },
+            { name: "Asthma", rating: "", score: null, note: "Health factor - may be stress-responsive or environmental" },
+            { name: "Eczema", rating: "", score: null, note: "Health factor - may be stress-responsive or environmental" },
             { name: "Sleep Quality", rating: "8/10", score: 80 },
             { name: "Energy Levels", rating: "7/10", score: 70 },
             { name: "Nutrition Habits", rating: "8/10", score: 80 },
@@ -97,16 +74,14 @@ const traitData = {
         ]
     },
     workStyle: {
-        title: "Work Style",
+        title: "🔁 Behavioral Patterns & Identity Drivers",
         traits: [
-            { name: "Works in sprints", rating: "", score: null, note: "7-8 days on, 2 days off" },
-            { name: "Difficult time getting into \"locked-in\" zone", rating: "", score: null },
-            { name: "When in \"locked-in\" zone, extremely high output", rating: "", score: null },
-            { name: "Hard time saying No to social events, drinking", rating: "", score: null },
-            { name: "Self-sabotage", rating: "", score: null, note: "Very high" },
-            { name: "Inconsistently dependable", rating: "", score: null },
-            { name: "Poor at multi-tasking", rating: "", score: null },
-            { name: "Poor at context-switching", rating: "", score: null }
+            { name: "Work Rhythms", rating: "", score: null, note: "Jason works in concentrated sprints—7–8 days of high focus, followed by 1–2 days of reset or disengagement." },
+            { name: "Locked-In Flow Entry", rating: "", score: null, note: "Jason needs clarity, alignment, and sometimes pressure to enter a flow state. Once in it, his output is elite." },
+            { name: "Social Boundary Management", rating: "", score: null, note: "Jason struggles to say no to social invitations or drinking. He values connection but may compromise his priorities." },
+            { name: "Self-Sabotage", rating: "High", score: null, note: "Jason's default tendency toward self-sabotage stems from perfectionism, a fear of failure, or unconscious loyalty to limitation." },
+            { name: "Dependability", rating: "Inconsistent", score: null, note: "Jason is highly dependable when emotionally aligned or externally accountable. He is less consistent when self-led but emotionally uncentered." },
+            { name: "Performer Identity", rating: "", score: null, note: "Jason often wants to be impressive—socially, intellectually, or physically. He values being seen as capable or interesting." }
         ]
     }
 };
@@ -116,11 +91,11 @@ const radarChartTraits = [
     { name: "Technology Literacy", score: 8 },
     { name: "Planning", score: 9 },
     { name: "Adaptability", score: 9 },
-    { name: "Problem-solving", score: 8 },
-    { name: "Creativity", score: 8 },
+    { name: "Problem-solving", score: 8.5 },
+    { name: "Creativity", score: 8.5 },
     { name: "Grit/Perseverance", score: 8.5 },
     { name: "Emotional Resilience", score: 8 },
-    { name: "Optimism", score: 10 },
-    { name: "Independence", score: 10 },
-    { name: "Reflectiveness", score: 9 }
+    { name: "Visionary Thinking", score: 8.5 },
+    { name: "Self-Awareness", score: 9.5 },
+    { name: "Meaning Orientation", score: 9.5 }
 ]; 
